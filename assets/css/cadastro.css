@@ -1,7 +1,8 @@
 .cartao
 {
-    background-color: blue;
+    background-color: white;
     margin-top: 6rem;
+    margin-bottom: 6rem;
     width: 60vw;
     padding: 2.5rem;
     border-radius: 16px;
@@ -14,9 +15,9 @@
 
 fieldset
 {
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 .formulario__legenda

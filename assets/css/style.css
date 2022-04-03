@@ -2,6 +2,7 @@
 
 body
 {
+    background-color: rgba(209, 245, 255, 0.65);
     display: flex;
     justify-content: center;
 }
