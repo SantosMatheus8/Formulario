@@ -1,0 +1,25 @@
+.cartao
+{
+    background-color: blue;
+    margin-top: 6rem;
+    width: 60vw;
+    padding: 2.5rem;
+    border-radius: 16px;
+}
+
+.cartao__titulo
+{
+    font-size: 4rem;
+}
+
+fieldset
+{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario__legenda
+{
+    font-size: var(--fonte-tamanho-legenda);
+}

@@ -1,0 +1,7 @@
+@import url(variaveis.css);
+
+body
+{
+    display: flex;
+    justify-content: center;
+}
