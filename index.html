@@ -20,24 +20,26 @@
         <form class="formulario"> 
             <fieldset>
                 <legend class="formulario__legenda">Informações pessoais</legend>
-                <input id="nome" class="formulario__input" placeholder="NOME COMPLETO">
-                <input id="dataNascimento" class="formulario__input" placeholder="DATA DE NASCIMENTO">
-                <input id="cpf" class="formulario__input" placeholder="CPF">
+                <input id="nome" class="formulario__input" placeholder="Nome Completo" type="text" required>
+                <input id="dataNascimento" class="formulario__input" placeholder="Data De Nascimento" type="date" required>
+                <input id="cpf" class="formulario__input" placeholder="CPF" type="text" required>
+                <input id="telefone" class="formulario__input" placeholder="Telefone" type="tel" required>
             </fieldset>
             <fieldset>
                 <legend class="formulario__legenda">Informações da conta</legend>
-                <input id="email" class="formulario__input" placeholder="EMAIL">
-                <input id="senha" class="formulario__input" placeholder="SENHA">
-                <input id="confirmaSenha" class="formulario__input" placeholder="CONFIRMAR SENHA">
+                <input id="email" class="formulario__input" placeholder="Email" type="email" required>
+                <input id="senha" class="formulario__input" placeholder="Senha" type="password" required>
+                <input id="confirmaSenha" class="formulario__input" placeholder="Confirmar Senha" type="password" required>
             </fieldset>
             <fieldset>
                 <legend class="formulario__legenda">Endereço</legend>
-                <input id="cep" class="formulario__input" placeholder="CEP">
-                <input id="cidade" class="formulario__input" placeholder="CIDADE">
-                <input id="estado" class="formulario__input" placeholder="ESTADO">
-                <input id="numero" class="formulario__input" placeholder="NÚMERO">
-                <input id="complemento" class="formulario__input" placeholder="COMPLEMENTO">
+                <input id="cep" class="formulario__input" placeholder="CEP" type="text" required>
+                <input id="cidade" class="formulario__input" placeholder="Cidade" type="text" required>
+                <input id="estado" class="formulario__input" placeholder="Estado" type="text" required>
+                <input id="numero" class="formulario__input" placeholder="Número" type="text" required>
+                <input id="complemento" class="formulario__input" placeholder="Complemento" type="text" required>
             </fieldset>
+            <input type="submit" class="formulario__enviar">
         </form>
 
     </section>

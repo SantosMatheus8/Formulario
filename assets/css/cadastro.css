@@ -6,6 +6,7 @@
     width: 60vw;
     padding: 2.5rem;
     border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .cartao__titulo
@@ -17,7 +18,7 @@ fieldset
 {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .formulario__legenda

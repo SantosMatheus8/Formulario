@@ -1,10 +1,24 @@
 .formulario__input
 {
     border-radius: 4px;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     height: 2.5rem;
     background-color: inherit;
     border: 0;
-    border-bottom: 2px solid rgba(214, 214, 214, 0.39);
+    border-bottom: 2px solid rgba(193, 193, 193, 0.65);
     outline: 0;
+    color: rgb(100, 100, 100);
+    font-size: 1.2rem;
+}
+
+.formulario__enviar
+{
+    width: 100%;
+    margin-top: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    background-color: rgba(27, 91, 252, 0.71);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color: white;
 }
