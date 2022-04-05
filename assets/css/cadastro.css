@@ -25,3 +25,14 @@ fieldset
 {
     font-size: var(--fonte-tamanho-legenda);
 }
+
+@media (max-width : 768px) {
+    .cartao__titulo
+    {
+        font-size: 3rem;
+    }
+    .formulario__legenda
+    {
+        font-size: 1.8rem;
+    }
+}
