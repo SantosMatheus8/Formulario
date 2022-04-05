@@ -1,12 +1,12 @@
 .cartao
 {
     background-color: white;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    width: 60vw;
-    padding: 2.5rem;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+    padding: 2.5rem;
+    width: 60vw;
 }
 
 .cartao__titulo
