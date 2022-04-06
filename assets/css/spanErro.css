@@ -1,0 +1,19 @@
+.formulario__span
+{
+    color : red;
+    display: none;
+}
+.mostra
+{
+    display: block;
+}
+
+.erroSenha
+{
+    color : red;
+    display: none;
+}
+.mostraSenha
+{
+    display: block;
+}

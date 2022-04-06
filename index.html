@@ -10,6 +10,7 @@
     <link href="/assets/css/reset.css" rel="stylesheet">
     <link href="/assets/css/cadastro.css" rel="stylesheet">
     <link href="/assets/css/inputs.css" rel="stylesheet">
+    <link href="/assets/css/spanErro.css" rel="stylesheet">
 
 </head>
 
@@ -24,21 +25,25 @@
                 <div class="formulario__conteiner">
                     <input id="nome" class="formulario__input" type="text" required>
                     <label for="nome" class="formulario__label">Nome Completo</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="dataNascimento" class="formulario__input" type="date" required>
                     <label for="dataNascimento" class="formulario__label" id="labelData">Data De Nascimento</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="cpf" class="formulario__input" type="text" required>
                     <label for="cpf" class="formulario__label">CPF</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="telefone" class="formulario__input" type="tel" required>
                     <label for="telefone" class="formulario__label">Telefone</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
             </fieldset>
@@ -48,15 +53,20 @@
                 <div class="formulario__conteiner">
                     <input id="email" class="formulario__input" type="email" required>
                     <label for="email" class="formulario__label">Email</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="senha" class="formulario__input" type="password" required>
+                    <span class="formulario__span">*Preencha este campo</span>
+                    <span class="erroSenha">*As senhas digitadas devem ser iguais</span>
                     <label for="senha" class="formulario__label">Senha</label>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="confirmaSenha" class="formulario__input" type="password" required>
+                    <span class="formulario__span">*Preencha este campo</span>
+                    <span class="erroSenha">*As senhas digitadas devem ser iguais</span>
                     <label for="confirmaSenha" class="formulario__label">Confirmar senha</label>
                 </div>
 
@@ -67,29 +77,34 @@
                 <div class="formulario__conteiner">
                     <input id="cep" class="formulario__input" type="text" required>
                     <label for="cep" class="formulario__label">CEP</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="cidade" class="formulario__input" type="text" required>
                     <label for="cidade" class="formulario__label">Cidade</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="estado" class="formulario__input" type="text" required>
                     <label for="estado" class="formulario__label">Estado</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="numero" class="formulario__input" type="text" required>
                     <label for="numero" class="formulario__label">Numero</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
                 <div class="formulario__conteiner">
                     <input id="complemento" class="formulario__input" type="text" required>
                     <label for="complemento" class="formulario__label">Complemento</label>
+                    <span class="formulario__span">*Preencha este campo</span>
                 </div>
             </fieldset>
-            <input type="submit" class="formulario__enviar">
+            <input type="submit" id="enviar" class="formulario__enviar">
         </form>
 
     </section>
