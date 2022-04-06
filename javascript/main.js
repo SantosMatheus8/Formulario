@@ -8,6 +8,9 @@ let senha = document.querySelector("#senha")
 let confirmaSenha = document.querySelector("#confirmaSenha")
 let erroSenha = document.querySelectorAll(".erroSenha")
 
+let email =  document.querySelector("#email")
+let emailInvalido = document.querySelector(".erroEmailInvalido")
+
 enviar.onclick = () => 
 {
  
@@ -20,6 +23,7 @@ enviar.onclick = () =>
         {
             inputs[i].style.borderBottom = "2px solid red"
             inputs[i].style.marginBottom = "0.5rem"
+            inputs[i].focus()
 
             span[i].classList.add('mostra')
 
@@ -42,14 +46,12 @@ enviar.onclick = () =>
         let labelConfirma = inputs[6].parentNode.lastElementChild
         let paiConfirma = inputs[6].parentNode
 
-        console.log(erroSenha[0])
-        console.log(erroSenha[1])
-
         span[5].classList.remove('mostra')
         span[6].classList.remove('mostra')
 
         erroSenha[0].classList.add('mostraSenha')
         erroSenha[1].classList.add('mostraSenha')
+        erroSenha[0].focus()
 
             inputs[5].style.borderBottom = "2px solid red"
             inputs[5].style.marginBottom = "0.5rem"
@@ -69,5 +71,22 @@ enviar.onclick = () =>
     {
         erroSenha[0].classList.remove('mostraSenha')
         erroSenha[1].classList.remove('mostraSenha')
+    }
+
+    if(email.validity.valid == false && email.value.length > 0)
+    {
+        emailInvalido.classList.add('mostraErroEmail')
+
+        pai = inputs[4].parentNode
+        pai.style.marginBottom = "1.2rem"
+
+        inputs[4].style.borderBottom = "2px solid red"
+        inputs[4].style.marginBottom = "0.5rem"
+
+        label[4].style.color = "red"
+    }
+    else 
+    {
+        emailInvalido.classList.remove('mostraErroEmail')
     }
 }

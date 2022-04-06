@@ -17,3 +17,13 @@
 {
     display: block;
 }
+
+.erroEmailInvalido
+{
+    color: red;
+    display: none;
+}
+.mostraErroEmail
+{
+    display: block;
+}
