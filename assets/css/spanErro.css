@@ -27,3 +27,13 @@
 {
     display: block;
 }
+
+.erroCPFInvalido
+{
+    color: red;
+    display: none; 
+}
+.mostraErroCPF
+{
+    display: block;
+}

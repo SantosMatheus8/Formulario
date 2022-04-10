@@ -11,10 +11,10 @@ let erroSenha = document.querySelectorAll(".erroSenha")
 let email =  document.querySelector("#email")
 let emailInvalido = document.querySelector(".erroEmailInvalido")
 
+let cpfInvalido = document.querySelector(".erroCPFInvalido")
+
 enviar.onclick = () => 
 {
- 
-
     for(let i = 0; i < inputs.length; i++)
     { 
         let pai = inputs[i].parentNode
@@ -53,19 +53,19 @@ enviar.onclick = () =>
         erroSenha[1].classList.add('mostraSenha')
         erroSenha[0].focus()
 
-            inputs[5].style.borderBottom = "2px solid red"
-            inputs[5].style.marginBottom = "0.5rem"
+        inputs[5].style.borderBottom = "2px solid red"
+        inputs[5].style.marginBottom = "0.5rem"
 
-            inputs[6].style.borderBottom = "2px solid red"
-            inputs[6].style.marginBottom = "0.5rem"
+        inputs[6].style.borderBottom = "2px solid red"
+        inputs[6].style.marginBottom = "0.5rem"
 
-            labelSenha.style.color = "red"
-            labelConfirma.style.color = "red"
+        labelSenha.style.color = "red"
+        labelConfirma.style.color = "red"
 
-            paiSenha.style.marginBottom = "1.2rem"
-            paiConfirma.style.marginBottom = "1.2rem"
+        paiSenha.style.marginBottom = "1.2rem"
+        paiConfirma.style.marginBottom = "1.2rem"
             
-            confirmaSenha.value = ''
+        confirmaSenha.value = ''
     }
     if((senha.value == confirmaSenha.value) && senha.value.length > 0)
     {
@@ -88,5 +88,79 @@ enviar.onclick = () =>
     else 
     {
         emailInvalido.classList.remove('mostraErroEmail')
+    }
+
+    let cpf = inputs[2].value
+
+    if(validaCPF(cpf) == false && cpf.length > 0)
+    {
+        cpfInvalido.classList.add('mostraErroCPF')
+
+        pai = inputs[2].parentNode
+        pai.style.marginBottom = "1.2rem"
+
+        inputs[2].style.borderBottom = "2px solid red"
+        inputs[2].style.marginBottom = "0.5rem"
+
+        label[2].style.color = "red"
+    }
+    else
+    {
+        cpfInvalido.classList.remove('mostraErroCPF')
+    }
+}
+
+function validaCPF(cpf)
+{
+    let j = 10
+    let soma = 0
+    let digitos = (cpf.length - 2)
+
+    for(let i = 0; i < digitos; i++)
+    {
+        soma += Number(cpf[i]) * j
+        j--
+    }
+    let resto = (soma * 10) % 11
+    let primeiroDigito
+
+    if(resto < 10)
+    {
+    primeiroDigito = resto
+    }
+    if(resto >= 10)
+    {
+        primeiroDigito = 0
+    }
+
+    soma = 0
+    digitos = (cpf.length - 1)
+    j = 11
+    let segundoDigito
+
+    for(let i = 0; i < digitos; i++)
+    {
+        soma += Number(cpf[i]) * j
+        j--
+    }
+
+    resto = (soma * 10) % 11
+
+    if(resto < 10)
+    {
+        segundoDigito = resto
+    }
+    if(resto >= 10)
+    {
+        segundoDigito = 0 
+    }
+
+    if(primeiroDigito == cpf[9] && segundoDigito == cpf[10])
+    {
+        return true
+    }
+    else
+    {
+        return false
     }
 }
