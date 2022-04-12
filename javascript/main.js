@@ -12,7 +12,7 @@ let email =  document.querySelector("#email")
 let emailInvalido = document.querySelector(".erroEmailInvalido")
 
 let cpfInvalido = document.querySelector(".erroCPFInvalido")
-
+let inputCPF = document.querySelector("#cpf")
 enviar.onclick = () => 
 {
     for(let i = 0; i < inputs.length; i++)
@@ -103,6 +103,7 @@ enviar.onclick = () =>
         inputs[2].style.marginBottom = "0.5rem"
 
         label[2].style.color = "red"
+        inputCPF.value = ''
     }
     else
     {

@@ -23,7 +23,7 @@
                 <legend class="formulario__legenda">Informações pessoais</legend>
 
                 <div class="formulario__conteiner">
-                    <input id="nome" class="formulario__input" type="text" required>
+                    <input id="nome" class="formulario__input" type="text" required oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\*?)\..*/g, '$1');">
                     <label for="nome" class="formulario__label">Nome Completo</label>
                     <span class="formulario__span">*Preencha este campo</span>
                 </div>
@@ -35,14 +35,14 @@
                 </div>
 
                 <div class="formulario__conteiner">
-                    <input id="cpf" class="formulario__input" type="text" required>
+                    <input id="cpf" class="formulario__input" type="text" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\*?)\..*/g, '$1');">
                     <span class="formulario__span">*Preencha este campo</span>
                     <span class="erroCPFInvalido">*O CPF informado não é válido</span>
                     <label for="cpf" class="formulario__label">CPF</label>
                 </div>
 
                 <div class="formulario__conteiner">
-                    <input id="telefone" class="formulario__input" type="tel" required>
+                    <input id="telefone" class="formulario__input" type="tel" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\*?)\..*/g, '$1');">
                     <label for="telefone" class="formulario__label">Telefone</label>
                     <span class="formulario__span">*Preencha este campo</span>
                 </div>
@@ -52,7 +52,7 @@
                 <legend class="formulario__legenda">Informações da conta</legend>
                
                 <div class="formulario__conteiner">
-                    <input id="email" class="formulario__input" type="email" required>
+                    <input id="email" class="formulario__input" type="text" required>
                     <span class="formulario__span">*Preencha este campo</span>
                     <span class="erroEmailInvalido">*Digite um endereço de email válido</span>
                     <label for="email" class="formulario__label">Email</label>
@@ -77,7 +77,7 @@
                 <legend class="formulario__legenda">Endereço</legend>
 
                 <div class="formulario__conteiner">
-                    <input id="cep" class="formulario__input" type="text" required>
+                    <input id="cep" class="formulario__input" type="text" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                     <label for="cep" class="formulario__label">CEP</label>
                     <span class="formulario__span">*Preencha este campo</span>
                 </div>
