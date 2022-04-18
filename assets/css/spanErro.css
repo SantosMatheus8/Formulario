@@ -37,3 +37,13 @@
 {
     display: block;
 }
+
+.errocep
+{
+    color: red;
+    display: none;
+}
+.mostraErroCep
+{
+    display: block;
+}

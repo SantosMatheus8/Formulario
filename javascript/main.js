@@ -8,19 +8,20 @@ let senha = document.querySelector("#senha")
 let confirmaSenha = document.querySelector("#confirmaSenha")
 let erroSenha = document.querySelectorAll(".erroSenha")
 
-let email =  document.querySelector("#email")
+let email = document.querySelector("#email")
 let emailInvalido = document.querySelector(".erroEmailInvalido")
 
 let cpfInvalido = document.querySelector(".erroCPFInvalido")
 let inputCPF = document.querySelector("#cpf")
-enviar.onclick = () => 
-{
-    for(let i = 0; i < inputs.length; i++)
-    { 
+
+let erroCep = document.querySelector(".errocep")
+
+
+enviar.onclick = () => {
+    for (let i = 0; i < inputs.length; i++) {
         let pai = inputs[i].parentNode
-        
-        if(inputs[i].value.length < 1)
-        {
+
+        if (inputs[i].value.length < 1) {
             inputs[i].style.borderBottom = "2px solid red"
             inputs[i].style.marginBottom = "0.5rem"
             inputs[i].focus()
@@ -31,16 +32,14 @@ enviar.onclick = () =>
 
             pai.style.marginBottom = "1.2rem"
         }
-        if(inputs[i].value.length > 0)
-        {
+        if (inputs[i].value.length > 0) {
             label[i].style.color = "rgba(27, 91, 252, 0.71)"
             span[i].classList.remove('mostra')
             inputs[i].style.borderBottom = "2px solid rgba(27, 91, 252, 0.71)"
         }
     }
 
-    if(!(senha.value == confirmaSenha.value))
-    {
+    if (!(senha.value == confirmaSenha.value)) {
         let labelSenha = inputs[5].parentNode.lastElementChild
         let paiSenha = inputs[5].parentNode
         let labelConfirma = inputs[6].parentNode.lastElementChild
@@ -64,17 +63,15 @@ enviar.onclick = () =>
 
         paiSenha.style.marginBottom = "1.2rem"
         paiConfirma.style.marginBottom = "1.2rem"
-            
+
         confirmaSenha.value = ''
     }
-    if((senha.value == confirmaSenha.value) && senha.value.length > 0)
-    {
+    if ((senha.value == confirmaSenha.value) && senha.value.length > 0) {
         erroSenha[0].classList.remove('mostraSenha')
         erroSenha[1].classList.remove('mostraSenha')
     }
 
-    if(email.validity.valid == false && email.value.length > 0)
-    {
+    if (email.validity.valid == false && email.value.length > 0) {
         emailInvalido.classList.add('mostraErroEmail')
 
         pai = inputs[4].parentNode
@@ -85,15 +82,13 @@ enviar.onclick = () =>
 
         label[4].style.color = "red"
     }
-    else 
-    {
+    else {
         emailInvalido.classList.remove('mostraErroEmail')
     }
 
     let cpf = inputs[2].value
 
-    if(validaCPF(cpf) == false && cpf.length > 0)
-    {
+    if (validaCPF(cpf) == false && cpf.length > 0) {
         cpfInvalido.classList.add('mostraErroCPF')
 
         pai = inputs[2].parentNode
@@ -105,19 +100,17 @@ enviar.onclick = () =>
         label[2].style.color = "red"
         inputCPF.value = ''
     }
-    else
-    {
-        cpfInvalido.classList.remove('mostraErroCPF')
+    else {
+        cpfInvalido.classList.remove('mostraErroCPF')   
     }
 }
 
-function validaCPF(cpf)
-{
+function validaCPF(cpf) {
     let j = 10
     let soma = 0
     let digitos = (cpf.length - 2)
 
-    for(let i = 0; i < digitos; i++)
+    for (let i = 0; i < digitos; i++)
     {
         soma += Number(cpf[i]) * j
         j--
@@ -125,11 +118,11 @@ function validaCPF(cpf)
     let resto = (soma * 10) % 11
     let primeiroDigito
 
-    if(resto < 10)
+    if (resto < 10) 
     {
-    primeiroDigito = resto
+        primeiroDigito = resto
     }
-    if(resto >= 10)
+    if (resto >= 10) 
     {
         primeiroDigito = 0
     }
@@ -139,7 +132,7 @@ function validaCPF(cpf)
     j = 11
     let segundoDigito
 
-    for(let i = 0; i < digitos; i++)
+    for (let i = 0; i < digitos; i++) 
     {
         soma += Number(cpf[i]) * j
         j--
@@ -147,21 +140,72 @@ function validaCPF(cpf)
 
     resto = (soma * 10) % 11
 
-    if(resto < 10)
+    if (resto < 10) 
     {
         segundoDigito = resto
     }
-    if(resto >= 10)
+    if (resto >= 10) 
     {
-        segundoDigito = 0 
+        segundoDigito = 0
     }
 
-    if(primeiroDigito == cpf[9] && segundoDigito == cpf[10])
+    if (primeiroDigito == cpf[9] && segundoDigito == cpf[10]) 
     {
         return true
     }
-    else
+    else 
     {
         return false
     }
+}
+
+let cepInput = inputs[7]
+cepInput.onblur = (e) => {
+    if(cepInput.value.length > 0)
+    {
+        validaCep(e.target.value)
+    }
+}
+
+async function validaCep(cep)
+{
+    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(
+        response => response.json()).then(data => {
+            preencheCampos(data)
+        }).catch(err => {
+             chamaErroCep()
+            });
+}
+function preencheCampos(data) 
+{
+    let cidade = inputs[8]
+    let estado = inputs[9]
+    let bairro = inputs[11]
+    let complemento = inputs[12]
+    if(data.localidade !== undefined)
+    {
+        cidade.value = data.localidade
+        estado.value = data.uf 
+        bairro.value = data.bairro
+        complemento.value = data.logradouro
+    }
+    else
+    {
+        chamaErroCep()
+    }
+}
+function chamaErroCep()
+{
+    cidade.value = ''
+    estado.value = ''
+    bairro.value = ''
+    complemento.value = ''
+
+    erroCep.classList.add('mostraErroCep')
+    pai = cepInput.parentNode
+    pai.style.marginBottom = "1.2rem"
+    cepInput.style.borderBottom = "2px solid red"
+    cepInput.style.marginBottom = "0.5rem"
+    label[7].style.color = "red"
+    cepInput.value = ''
 }

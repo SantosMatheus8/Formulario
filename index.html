@@ -78,8 +78,9 @@
 
                 <div class="formulario__conteiner">
                     <input id="cep" class="formulario__input" type="text" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                    <label for="cep" class="formulario__label">CEP</label>
                     <span class="formulario__span">*Preencha este campo</span>
+                    <span class="errocep">*Digite um CEP válido</span>
+                    <label for="cep" class="formulario__label">CEP</label>
                 </div>
 
                 <div class="formulario__conteiner">
@@ -97,6 +98,12 @@
                 <div class="formulario__conteiner">
                     <input id="numero" class="formulario__input" type="text" required>
                     <label for="numero" class="formulario__label">Numero</label>
+                    <span class="formulario__span">*Preencha este campo</span>
+                </div>
+
+                <div class="formulario__conteiner">
+                    <input id="bairro" class="formulario__input" type="text" required>
+                    <label for="bairro" class="formulario__label">Bairro</label>
                     <span class="formulario__span">*Preencha este campo</span>
                 </div>
 
